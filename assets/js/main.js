@@ -203,13 +203,17 @@ window.addEventListener("DOMContentLoaded", function () {
 
   function success() {
     form.reset();
+    status.classList.remove("sent-message");
+    status.classList.remove("error-message");
+    status.classList.add("sent-message");
     status.innerHTML = "Thanks! Your message has been sent";
-    status.addClass("sent-message");
   }
 
   function error() {
+    status.classList.remove("sent-message");
+    status.classList.remove("error-message");
+    status.classList.add("error-message");
     status.innerHTML = "Oops! There was a problem.";
-    status.addClass("error-message");
   }
 
   // handle the form submission event
