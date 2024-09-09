@@ -241,3 +241,38 @@ function ajax(method, url, data, success, error) {
   };
   xhr.send(data);
 }
+
+// Example words with priority levels
+const words = [
+  { text: 'React', weight: 25 },
+  { text: 'TypeScript', weight: 20 },
+  { text: 'JavaScript', weight: 20 },
+  { text: 'C++', weight: 18 },
+  { text: 'React Native', weight: 17 },
+  { text: 'Node.js', weight: 15 },
+  { text: 'Go', weight: 15 },
+  { text: 'SQL', weight: 15 },
+  { text: 'MongoDb', weight: 14 },
+  { text: 'Express', weight: 13 },
+  { text: 'Next', weight: 12 },
+  { text: 'Fusion', weight: 11 },
+  { text: 'HTML', weight: 10 },
+  { text: 'CSS', weight: 10 },
+  { text: 'Python', weight: 3 },
+  { text: 'Java', weight: 3 },
+  { text: 'Comuter vision', weight: 3 },
+];
+
+// Function to format words for wordcloud2.js
+function formatWords(words) {
+  return words.map(word => ({ text: word.text, weight: word.weight }));
+}
+
+// Create the word cloud
+WordCloud(document.getElementById('word-cloud'), {
+  list: formatWords(words),
+  gridSize: 10,
+  weightFactor: 10,
+  color: 'random-light',
+  backgroundColor: '#fff'
+});
